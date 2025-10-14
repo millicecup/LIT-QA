@@ -1,0 +1,10 @@
+SHOPPING CART RECEIPT
+====================
+Date: 2025-10-14T21:36:12.181353600
+
+1. Design Patterns - $54.95
+2. Java Programming - $45.99
+3. Romeo and Juliet - $29.0
+--------------------
+Total Amount: $129.94
+====================

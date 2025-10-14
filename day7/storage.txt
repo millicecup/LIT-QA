@@ -1,0 +1,6 @@
+B001,Java Programming,45.99,15,Herbert Schildt
+B002,Clean Code,32.50,8,Robert Martin
+B003,Design Patterns,54.95,5,Gang of Four
+E001,Gaming Laptop,1299.99,3,ASUS
+E002,Wireless Headphones,199.99,12,Sony
+E003,Smartphone,899.99,7,Samsung
