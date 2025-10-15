@@ -42,9 +42,9 @@
                 <version>3.1.0</version>
                 <configuration>
                     <!-- <mainClass>com.test.perplexity.PerplexityTest</mainClass> -->
-                    <mainClass>com.test.perplexity.PerplexityChatTest</mainClass>
+                    <!-- <mainClass>com.test.perplexity.PerplexityChatTest</mainClass> -->
                     <!-- <mainClass>com.test.perplexity.PerplexityTestSimple</mainClass> -->
-                    <!-- <mainClass>com.test.perplexity.PerplexityTestImproved</mainClass> -->
+                    <mainClass>com.test.perplexity.PerplexityTestImproved</mainClass>
                 </configuration>
             </plugin>
         </plugins>
