@@ -15,10 +15,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-/**
- * Improved Perplexity Anonymous Chat Test
- * Based on your working code with enhancements for better reliability
- */
 public class PerplexityTestImproved {
     
     private static final String OUTPUT_DIR = "test-output";
@@ -60,7 +56,7 @@ public class PerplexityTestImproved {
         options.addArguments("--disable-features=VizDisplayCompositor");
         options.addArguments("--remote-allow-origins=*");
         
-        // Enhanced anti-bot detection (like your original code)
+        // Enhanced anti-bot detection
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.setExperimentalOption("useAutomationExtension", false);
         options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
@@ -85,17 +81,17 @@ public class PerplexityTestImproved {
         Thread.sleep(3000);
         takeScreenshot("01_homepage");
         
-        // Step 2: Find chatbox (using multiple strategies like your original)
+        // Step 2: Find chatbox 
         System.out.println("\n🔍 Step 2: Looking for chatbox...");
         WebElement chatBox = findChatBox();
         
-        // Center the chatbox like your original code
+        // Center the chatbox
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", chatBox);
         Thread.sleep(2000);
         takeScreenshot("02_chatbox_located");
         
-        // Step 3: Type question (using your original question)
+        // Step 3: Type question
         String question = "What is the Schrödinger Cat?";
         System.out.println("\n✍️ Step 3: Typing question: " + question);
         
@@ -107,28 +103,27 @@ public class PerplexityTestImproved {
         chatBox.sendKeys(Keys.ENTER);
         System.out.println("💬 Question submitted!");
         
-        // Step 5: Wait for response (enhanced waiting like your original)
+        // Step 5: Wait for response
         System.out.println("\n⏳ Step 5: Waiting for AI response...");
         waitForResponse();
         takeScreenshot("04_response_received");
         
-        // Step 6: Extract response (using your selectors + improvements)
+        // Step 6: Extract response 
         System.out.println("\n📄 Step 6: Extracting response...");
         String response = extractResponse();
         
-        // Step 7: Save results (enhanced version of your saveToFile method)
+        // Step 7: Save results 
         saveResponse(question, response);
         
         System.out.println("\n🎉 All steps completed successfully!");
     }
     
     /**
-     * Find chatbox using multiple selectors (based on your working code)
+     * Find chatbox using multiple selectors 
      */
     private static WebElement findChatBox() {
         WebElement chatBox = null;
-        
-        // Try your original working selectors first
+       
         try {
             chatBox = wait.until(ExpectedConditions.elementToBeClickable(By.tagName("textarea")));
             System.out.println("✅ Found chatbox using: textarea");
@@ -171,7 +166,7 @@ public class PerplexityTestImproved {
      */
     private static void typeQuestion(WebElement chatBox, String question) throws Exception {
         try {
-            // Method 1: Your original approach
+            // Method 1: Standard sendKeys
             chatBox.sendKeys(question);
             System.out.println("✅ Typed using sendKeys");
             
@@ -189,17 +184,17 @@ public class PerplexityTestImproved {
     }
     
     /**
-     * Enhanced waiting for response (based on your working code)
+     * Enhanced waiting for response 
      */
     private static void waitForResponse() throws InterruptedException {
-        // Initial wait like your original code
+        // Initial wait 
         Thread.sleep(6000);
         
         // Monitor for completion with progress updates
         int maxWaitSeconds = 45;
         for (int i = 0; i < maxWaitSeconds; i += 3) {
             try {
-                // Look for response elements using your original selectors
+                // Look for response elements 
                 List<WebElement> proseElements = driver.findElements(By.cssSelector(".prose"));
                 List<WebElement> whiteSpaceElements = driver.findElements(By.cssSelector(".whitespace-pre-line"));
                 
@@ -222,18 +217,18 @@ public class PerplexityTestImproved {
             }
         }
         
-        // Final buffer like your original
+        // Final buffer 
         Thread.sleep(3000);
     }
     
     /**
-     * Extract response using your working selectors plus improvements
+     * Extract response 
      */
     private static String extractResponse() {
         WebElement answer = null;
         String responseText = "";
         
-        // Try your original working selectors first
+        
         try {
             answer = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".prose")));
             responseText = answer.getText();
@@ -313,9 +308,8 @@ public class PerplexityTestImproved {
         System.out.println("📊 Response length: " + responseText.length() + " characters");
         return responseText;
     }
-    
     /**
-     * Enhanced version of your saveToFile method
+     * Save question and response to timestamped file
      */
     private static void saveResponse(String question, String responseText) {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
